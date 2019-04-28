@@ -9,6 +9,43 @@
 
 ## Usage
 
+Set up [Now](https://zeit.co/now) on your device and run the following commands.
+
+1. Clone the now repo locally using git: `git clone https://github.com/rauchg/slackin` or `git clone git@github.com:rauchg.slackin`
+2. Change directory to the repo: `cd slackin`
+3. Add the required information as `now` secrets:
+    * `now secret add slack-subdomain <domain>`.
+    * `now secret add slack-api-token <api-token>`
+    * `now secret add google-captcha-sitekey <captcha-sitekey>`
+    * `now secret add google-captcha-secret <captcha-secret>`
+4. Deploy by running now:
+
+```bash
+now
+```
+
+Other platforms:
+
+- [Heroku](https://heroku.com/deploy?template=https://github.com/rauchg/slackin/tree/master)
+- [Azure](https://azuredeploy.net/)
+- [OpenShift](https://github.com/rauchg/slackin/wiki/OpenShift)
+- [IBM Cloud](https://bluemix.net/deploy?repository=https://github.com/rauchg/slackin)
+
+### Tips
+
+Your team id is what you use to access your login page on Slack (eg: https://**{this}**.slack.com).
+
+You can find or generate your API test token at [api.slack.com/web](https://api.slack.com/web) – note that the user you use to generate the token must be an admin. You need to create a dedicated `@slackin-inviter` user (or similar), mark that user an admin, and use a test token from that dedicated admin user.  Note that test tokens have actual permissions so you do not need to create an OAuth 2 app. Also check out the Slack docs on [generating a test token](https://get.slack.help/hc/en-us/articles/215770388-Creating-and-regenerating-API-tokens).
+
+**Important:** If you use Slackin in single-channel mode, you'll only be
+able to invite as many external accounts as paying members you have
+times 5. If you are not getting invite emails, this might be the reason.
+Workaround: sign up for a free org, and set up Slackin to point to it
+(all channels will be visible).
+
+Here is where to [generate a secret and
+sitekey](https://www.google.com/recaptcha/admin) for Google reCAPTCHA.
+
 ### Badges
 
 #### Realtime ([demo](https://cldup.com/IaiPnDEAA6.gif))
