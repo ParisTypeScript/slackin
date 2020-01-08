@@ -9,7 +9,7 @@
 
 var pkg = require('./../package')
 var args = require('args')
-const env = require('./../dist/env')
+const env = require('./../dist/env').default
 const slackin = require('./../dist').default
 
 args
@@ -54,5 +54,5 @@ if (!org || !token || !gcaptcha_sitekey || !gcaptcha_secret) {
 
 slackin(flags).listen(flags.port, flags.hostname, function (err) {
   if (err) throw err
-  if (!flags.silent) console.log('%s – listening on %s:%d', new Date, hostname, port)
+  if (!flags.silent) console.log('%s – listening on %s:%d', new Date, flags.hostname, flags.port)
 })
